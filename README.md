@@ -2,4 +2,4 @@
 Learning with data structures
 
 
-In this repository is put my daily practice problems.
+In this repository, I put my daily practice problems.
