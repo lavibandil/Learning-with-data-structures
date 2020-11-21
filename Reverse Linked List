@@ -1,0 +1,25 @@
+ public ListNode reverseList(ListNode head) {
+     
+     //if list is empty then
+        if(head==null)
+            return head;
+     // if list is not empty so intializing pointers   
+     ListNode current= head;
+     ListNode previous=null;
+     ListNode next=current.next;
+        
+    
+        while(next!=null)
+        {
+            current.next=previous;
+            previous=current;
+            current=next;
+            next=current.next;
+        }
+      current.next=previous;
+      //changing head after reversing list
+      head=current;
+        
+        return head;
+      
+         }
