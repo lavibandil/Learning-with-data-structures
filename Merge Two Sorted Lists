@@ -1,0 +1,59 @@
+class Solution {
+
+// helper function to perform merging of lists 
+    
+    static ListNode merge(ListNode l1, ListNode l2)
+    {
+        
+        ListNode t1= l1;
+        ListNode t2=l2;
+        
+        while(t1.next!=null && t2!=null)
+        {
+            
+            if(t1.val<= t2.val && t2.val<= t1.next.val)
+            {
+                ListNode temp=t1.next;
+                t1.next=t2;
+                t2=t2.next;
+                t1=t1.next;
+                t1.next=temp;
+            }else{
+               t1=t1.next; 
+            }
+            
+        }
+        
+        if(t2!=null)
+        t1.next=t2;
+        
+         return l1;
+        
+    }
+    
+    // main function to return list after merge
+    
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    
+    // if both lists are empty    
+        if(l1 == null && l2==null)
+        return l1;
+        
+     // if one list is empty   
+        if(l1 == null && l2!=null)
+        return l2;
+        
+        if(l1 != null && l2==null)
+        return l1;
+        
+     // if both lists are not empty
+     
+     // checking which list start from low value, that list will be preffered 
+        if(l1.val>l2.val)
+         return merge(l2,l1);
+        
+        return merge(l1,l2);
+        
+       
+    }
+}
